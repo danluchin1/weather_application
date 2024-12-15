@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Weather</title>
+        <link rel="stylesheet" href="/styles-weather.css">
+    </head>
+    <body>
+        <h1>Weather forecasts</h1>
+
+        <!-- Form Section -->
+        <form method="GET" action="/weather" class="city-form">
+            <label for="name">Select the city</label>
+            <input type="text" id="name" name="name" value="<%= it.city %>" required />
+            <input type="submit" value="Search" />
+        </form>
+
+        <!-- Error Message -->
+        <% if (it.errorMessage) { %>
+            <div class="error-message">
+                <p><%= it.errorMessage %></p>
+            </div>
+        <% } else { %>
+            <!-- City Weather Section -->
+            <h2>Weather for <%= it.city %></h2>
+            
+            <!-- Description Link -->
+            <div class="link-container">
+                <a href="/municipality-description?city=<%= it.city %>" class="description-link">
+                    Get the description of this city
+                </a>
+            </div>
+
+            <!-- Current Weather Section -->
+            <% if (it.currentWeather && it.currentWeather.current) { %>
+                <div class="weather-info">
+                    <h3>Current weather</h3>
+                    <p>Temperature: <%= it.currentWeather.current.temp_c %>°C</p>
+                    <p>Feels like: <%= it.currentWeather.current.feelslike_c %>°C</p>
+                    <p>Condition: <%= it.currentWeather.current.condition.text %></p>
+                    <p>Wind: <%= it.currentWeather.current.wind_kph %> K/h</p>
+                </div>
+            <% } %>
+
+            <!-- Forecast Section -->
+            <% if (it.forecastWeather && it.forecastWeather.forecast) { %>
+                <h3>Forecast for the next 7 days</h3>
+                <ul class="forecast-list">
+                    <% it.forecastWeather.forecast.forecastday.forEach(day => { %>
+                        <li class="forecast-day">
+                            <strong><%= day.date %></strong>
+                            <p>Temperature: <%= day.day.avgtemp_c %>°C</p>
+                            <p>Condition: <%= day.day.condition.text %></p>
+                        </li>
+                    <% }); %>
+                </ul>
+            <% } %>
+        <% } %>
+
+        <!-- Back to Home Link -->
+        <div class="back-home-container">
+            <a href="/" class="back-home">Back to Home</a>
+        </div>
+
+        <footer class="footer">
+            <p class="footer-text">&copy; 2024 Weather Info</p>
+        </footer>
+    </body>
+</html>

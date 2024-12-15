@@ -1,0 +1,31 @@
+<DOCTYPE html>
+<html>
+    <head>
+        <title>Municipality description</title>
+        <link rel="stylesheet" href="/styles-municipality.css">
+    </head>
+    <body>
+        <h1>Municipality description    </h1>
+        <form method="GET" action="/municipality-description" class="city-form">
+            <label for="city">Enter the city:</label>
+            <input type="text" id="city" name="city" value="<%= it.city || ''%>" required />
+            <input type="submit" value="Get description" />
+        </form>
+
+        <% if(it.cityInfo) { %>
+            <h2>About the <%= it.city %>:</h2>
+            <p><%= it.cityInfo %>.</p>
+        <% } else { %>
+            <p>No description available. Please enter a city to get the information.</p>
+        <% } %>
+
+        <!-- Back to Home Link -->
+        <div class="back-home-container">
+            <a href="/" class="back-home">Back to Home</a>
+        </div>
+
+        <footer class="footer">
+            <p class="footer-text">&copy; 2024 Municipality Info</p>
+        </footer>
+    </body>
+</html>

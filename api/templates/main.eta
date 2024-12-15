@@ -1,0 +1,46 @@
+<!OCTYPE html>
+<html>
+    <head>
+        <title>Welcome</title>
+        <link rel="stylesheet" href="/styles-main.css">
+    </head>
+    <body>
+        <header id="header">
+            <h1>Welcome to the City Info and Weather Portal</h1>
+            <p>Get detailed weather forecasts and learn about municipalities around the world!</p>
+        </header>
+
+        <nav>
+            <a href="/weather">
+                <button id="buttons">Check Weather</button>
+            </a>
+            <a href="/municipality-description">
+                <button id="buttons">Explore Municipality Info</button>
+            </a>
+        </nav>
+
+        <main>
+            <section>
+                <h2 id="headline">Discover Featured Cities</h2>
+                <div id="cities">
+                    <% it.weatherData.forEach(cityData => { %>
+                    <div class="city-box">
+                        <img src="/images/<%= cityData.city.toLowerCase() %>.jpg" alt="<%= cityData.city %> Image" class="city-image">
+                        <h3 class="city-name"><%= cityData.city %></h3>
+                        <p class="city-temp">Current Temperature: <%= cityData.currentWeather.current.temp_c %>°C</p>
+                        <div class="city-links">
+                            <a href="/weather?name=<%= cityData.city %>" class="city-link">Weather</a>
+                            <a href="/municipality-description?city=<%= cityData.city %>" class="city-link">Municipality Info</a>
+                        </div>
+                    </div>
+                    <% }); %>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Powered by WeatherAPI and HuggingFace</p>
+            <p>Contact: info@cityweatherportal.com</p>
+        </footer>
+    </body>
+</html>
