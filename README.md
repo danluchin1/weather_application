@@ -44,7 +44,7 @@ cd weather_application
 4. **Access the application:** Open your browser and navigate to http://localhost:3000.
 
 ## API References and Key Management
-**Weather API**
+#### Weather API
 The application relies on a third-party weather API to fetch real-time data. You'll need to register for an API key from the weather service: **https://www.weatherapi.com/**.
 1. **API Key Setup**
 * Obtain your API key from the provider's website.
@@ -60,7 +60,7 @@ The /weather route retrieves current weather data and forecast for 7 days for th
 **currentWeather = await weatherService.getWeatherToday(city);**
 **forecastWeather = await weatherService.getWeatherForecast(city);**
 
-**AI API**
+#### AI API
 The application uses the Hugging Face AI API to generate textual descriptions dynamically, such as creating brief descriptions of municipalities or locations. To use this service, you need to register for an API key at https://huggingface.co/.
 1. **API Key Setup**
 * Obtain your API key by signing up at Hugging Face and creating an API token.
