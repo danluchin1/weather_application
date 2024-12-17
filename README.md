@@ -25,6 +25,8 @@ The Municipality Weather Information App allows users to:
 **Prerequisites**
 Ensure you have the following installed on your system:
 * Deno: Version 1.30 or higher.
+* Weather API Key from **https://www.weatherapi.com/**.
+* AI API Key from **https://huggingface.co/**
 **Steps**
 1. **Clone the repository:**
 git clone https://github.com/danluchin1/weather_application
@@ -32,8 +34,7 @@ cd weather_application
 2. **Set up environment variables:**
 * Create a .env file in the root directory (or use the provided project.env).
 * Define the following variables:
-**PORT=3000**
-**WEATHER_API_KEY=your-weather-api-key**
+**PORT=3000**, **WEATHER_API_KEY=your-weather-api-key**, **HUGGINGFACE_API_KEY=your-huggingFace-ai-api-key**
 3. **Run the application:** Use  the Deno runtime to start the app
 **deno run --allow-read --allow-net --env-file=project.env --allow-env --watch app-run.js**
 **Flags Explained**
@@ -61,7 +62,7 @@ The /weather route retrieves current weather data and forecast for 7 days for th
 **forecastWeather = await weatherService.getWeatherForecast(city);**
 
 #### AI API
-The application uses the Hugging Face AI API to generate textual descriptions dynamically, such as creating brief descriptions of municipalities or locations. To use this service, you need to register for an API key at https://huggingface.co/.
+The application uses the Hugging Face AI API to generate textual descriptions dynamically, such as creating brief descriptions of municipalities or locations. To use this service, you need to register for an API key at **https://huggingface.co/**.
 1. **API Key Setup**
 * Obtain your API key by signing up at Hugging Face and creating an API token.
 * Add the key to the .env file:
