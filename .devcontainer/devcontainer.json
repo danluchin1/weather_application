@@ -1,0 +1,27 @@
+{
+  "name": "Municipality & Weather Information App",
+  "image": "ghcr.io/denoland/deno:latest",
+  "postCreateCommand": "deno task init",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "deno.enable": true,
+        "deno.unstable": true,
+        "editor.formatOnSave": true
+      },
+      "extensions": [
+        "denoland.vscode-deno"
+      ]
+    }
+  },
+  "forwardPorts": [8000],
+  "portsAttributes": {
+    "8000": {
+      "label": "Web App",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "mounts": [
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+  ]
+}
