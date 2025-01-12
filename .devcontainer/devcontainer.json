@@ -1,6 +1,6 @@
 {
   "name": "Municipality & Weather Information App",
-  "image": "ghcr.io/denoland/deno:latest",
+  "image": "ghcr.io/denoland/deno:1.36.0",
   "postCreateCommand": "deno task init",
   "customizations": {
     "vscode": {
@@ -21,7 +21,7 @@
       "onAutoForward": "openBrowser"
     }
   },
-  "mounts": [
-    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
-  ]
+  "remoteEnv": {
+    "API_URL": "https://api.example.com"
+  }
 }
