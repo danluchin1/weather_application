@@ -9,25 +9,25 @@ The Municipality Weather Information App allows users to:
 * The app uses a modern, serverless-first approach with Deno for an efficient and secure runtime.
 
 ## Technologies Used
-**Backend**
+#### **Backend**
 * Deno: A secure, fast, and JavaScript/TypeScript runtime.
 * Hono: A minimal and ultrafast web framework for Deno.
-**Frontend**
+#### **Frontend**
 * ETA.js: Template engine for rendering dynamic HTML.
 * CSS: Custom styles for responsive design.
-**APIs**
+#### **APIs**
 * Weather API: External API for fetching real-time weather data.
 * Hugging Face AI API: External API for leveraging advanced AI models to perform text generation. 
-**Utilities**
+#### **Utilities**
 * Deno Environment Variables: Managed using Deno’s Deno.env and .env files.
 
 ## Setting Up the Project Locally
-**Prerequisites**
+#### **Prerequisites**
 Ensure you have the following installed on your system:
 * Deno: Version 1.30 or higher.
 * Weather API Key from **https://www.weatherapi.com/**.
 * AI API Key from **https://huggingface.co/**
-**Steps**
+#### **Steps**
 1. **Clone the repository:**
 git clone https://github.com/danluchin1/weather_application
 cd weather_application
@@ -37,7 +37,7 @@ cd weather_application
 **PORT=3000**, **WEATHER_API_KEY=your-weather-api-key**, **HUGGINGFACE_API_KEY=your-huggingFace-ai-api-key**
 3. **Run the application:** Use  the Deno runtime to start the app
 **deno run --allow-read --allow-net --env-file=project.env --allow-env --watch app-run.js**
-**Flags Explained**
+#### **Flags Explained**
 * **--allow-read:** Allows access to local files (e.g., templates, images).
 * **--allow-net:** Grants the app access to make network requests.
 * **--allow-env:** Enables access to environment variables.
