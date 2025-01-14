@@ -35,7 +35,7 @@ Ensure you have the following installed on your system:
 * Create a `.env` file in the root directory (or use the provided `project.env`).
 * Define the following variables:
 `PORT=3000`, `WEATHER_API_KEY=your-weather-api-key`, `HUGGINGFACE_API_KEY=your-huggingFace-ai-api-key`
-3. **Run the application:** Use  the `Deno` runtime to start the app<br>
+3. **Run the application:** Use  the `Deno` runtime to start the app:<br>
 `deno run --allow-read --allow-net --env-file=project.env --allow-env --watch app-run.js`
 #### **Flags Explained**
 * `--allow-read:` Allows access to local files (e.g., templates, images).
