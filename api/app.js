@@ -5,7 +5,7 @@ import { z } from "./deps.js";
 import * as weatherService from "./weatherService.js";
 import * as municipalityService from "./municipalityService.js";
 
-const eta = new Eta({ views: `${Deno.cwd()}/templates/` });
+const eta = new Eta({ views: "./api/templates" }); // Updated the path
 
 const app = new Hono();
 
@@ -68,11 +68,17 @@ app.get("/", async (c) => {
     const featuredCities = ["New York", "Tokyo", "Warsaw"];
     
     const weatherData = await Promise.all(
-        featuredCities.map(async (city) => ({
-            city,
-            currentWeather: await weatherService.getWeatherToday(city),
-        }))
+        featuredCities.map(async (city) => {
+            try {
+                const currentWeather = await weatherService.getWeatherToday(city);
+                return { city, currentWeather };
+            } catch (error) {
+                console.error(`Failed to fetch weather data for ${city}:`, error.message);
+                return { city, currentWeather: null }; // Fallback data
+            }
+        })
     );
+
     return c.html(await eta.render("main.eta", { weatherData }));
 });
 
